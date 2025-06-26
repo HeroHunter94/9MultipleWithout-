@@ -1,0 +1,67 @@
+<!--Haz un programa que pregunte por un número,
+ y usando el método de reducción de números indique 
+ si el mismo es múltiplo de 9 o no.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple of 9</title>
+    <link rel="shortcut icon" href="9.webp" type="icon">
+    <style>
+        body {
+            color: aliceblue;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* centra verticalmente */
+            align-items: center;
+            /* centra orizzontalmente */
+            background-image: url('9.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        button {
+            margin: 0 4px;
+            padding: 5px 10px;
+            border: 0.5px red inset;
+            border-radius: 5%;
+            background-color: ghostwhite;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Please insert an Integer
+        <button type="button" onclick="start()">Check the number</button>
+    </p>
+    <script>
+        function start() {
+            let number = prompt("Please insert a Integer Number", "123456789");
+            console.log(number);
+            if (number == "" || isNaN(number) || number == null) {
+                alert("Please insert a valid integer!!")
+                return;
+            }
+            while (number > 9) {
+                let sum = 0;
+                let numberString = number.toString().split('');
+                for (let i = 0; i < numberString.length; i++) {
+                    sum += parseInt(numberString[i]);
+                }
+                number = sum;
+
+            }
+            alert(`The number you have added ${number == 9 ? "is" : "is not"} a multiple of 9`);
+        }
+    </script>
+</body>
+
+</html>
